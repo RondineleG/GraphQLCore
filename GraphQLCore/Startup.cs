@@ -1,5 +1,6 @@
 ﻿using GraphQL;
 using GraphQL.Server;
+using GraphQL.Server.Ui.Playground;
 using GraphQLCore.Contracts;
 using GraphQLCore.Entities;
 using GraphQLCore.GraphQL.GraphQLSchema;
@@ -56,6 +57,9 @@ namespace GraphQLCore
             }
 
             app.UseHttpsRedirection();
+            app.UseGraphQL<AppSchema>();
+            app.UseGraphQLPlayground(options: new GraphQLPlaygroundOptions());
+
             app.UseMvc();
         }
     }
