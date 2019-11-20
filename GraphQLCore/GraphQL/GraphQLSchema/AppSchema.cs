@@ -1,5 +1,6 @@
 ﻿using GraphQL;
 using GraphQL.Types;
+using GraphQLCore.GraphQL.GraphQLQueries;
 
 namespace GraphQLCore.GraphQL.GraphQLSchema
 {
@@ -7,7 +8,7 @@ namespace GraphQLCore.GraphQL.GraphQLSchema
     {
         public AppSchema(IDependencyResolver resolver) : base (resolver)
         {
-                
+            Query = resolver.Resolve<AppQuery>();
         }
     }
 }
